@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1.0">
+  <title>shop form</title>
+  <style>
+  body{
+    background-color:violet;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  body h1{
+    font-size: 18px;
+    text-align: center;
+  }
+
+  </style>
+</head>
+<body>
+  
+ <div id="shopping">
+  <h1>shop</h1>
+  <form id="shop">
+    <label for="item_one">item one:</label><br>
+    <select id="item_one" name="shoplist" form="shop">
+      <option value="spinach">spinach</option>
+      <option value="beans">beans</option>
+      <option value="maize">maize</option>
+      <option value="rice">rice</option>
+      <option value="skumawiki">skumawiki</option>
+      <option value="potato">potato</option>
+    </select><br>
+    <label for="item_two">item two:</label><br>
+    <select id="item_two" name="shoplist" form="shop">
+      <option value="spinach">spinach</option>
+      <option value="beans">beans</option>
+      <option value="maize">maize</option>
+      <option value="rice">rice</option>
+      <option value="skumawiki">skumawiki</option>
+      <option value="potato">potato</option>
+    </select><br>
+    <label for="item_three">item three</label><br>
+      <select id="item_three" name="shoplist" form="shop">
+        <option value="spinach">spinach</option>
+        <option value="beans">beans</option>
+        <option value="maize">maize</option>
+        <option value="rice">rice</option>
+        <option value="skumawiki">skumawiki</option>
+        <option value="potato">potato</option>
+      </select><br>
+    <button type="submit" id=shop_btn>shop</button>
+  </form>
+  <ol id ="result"></ol>
+ </div>
+  <script type='text/javascript'>
+    
+    document.getElementById("shop").addEventListener("submit",order);
+  
+    //order
+    
+    function order(e){
+      e.preventDefault();
+      // Getting data from the form
+
+      let item_one  = document.querySelector("#item_one").value;
+      let item_two  = document.querySelector("#item_two").value;
+      let item_three= document.querySelector("#item_three").value;
+
+      // Array composing of all items
+      let items=[item_one,item_two,item_three];
+
+      // Looping through the array
+      let ol_element = document.getElementById("result");
+      items.forEach((element) =>{
+        let list_item = `<li>${element}</li>`;
+        ol_element.innerHTML += list_item;
+      });
+    }
+
+    
+    
+  </script>
+</body>
+</html>
